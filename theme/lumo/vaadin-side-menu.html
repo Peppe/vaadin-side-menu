@@ -27,20 +27,36 @@
         --vaadin-side-menu-color: var(--lumo-contrast);
         --vaadin-side-menu-border-color: var(--lumo-primary-color);
         --vaadin-side-menu-item-border: var(--lumo-tint-20pct);
+        --vaadin-side-menu-width: 280px;
         
 
         color: var(--lumo-contrast);
         background-color: var(--vaadin-side-menu-background);
         border-right: 1px solid var(--vaadin-side-menu-border-color);
-        width:280px;
+        width:var(--vaadin-side-menu-width);
+        overflow: hidden;
+        transition: width 0.5s ease;
+      }
+
+            
+      :host([toggle]) {
+          width: var(--lumo-size-m);
+      }
+
+      [part="header"],
+      [part="menu-items"],
+      [part="bottom"] {
+        width: var(--vaadin-side-menu-width);
       }
 
       [part="header"] {
         padding: var(--lumo-space-s);
+        width:var(--vaadin-side-menu-width)
       }
 
       [part="header"] iron-icon {
         cursor: pointer;
+        user-select: none;
       }
 
       [part="menu-items"] {
