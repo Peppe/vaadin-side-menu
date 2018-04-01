@@ -1,0 +1,82 @@
+<!--
+@license
+Copyright (c) 2018 Vaadin Ltd.
+This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+-->
+
+<link rel="import" href="../../polymer/polymer-element.html">
+<link rel="import" href="../../vaadin-themable-mixin/vaadin-themable-mixin.html">
+<link rel="import" href="../../vaadin-element-mixin/vaadin-element-mixin.html">
+<link rel="import" href="vaadin-side-menu-item.html">
+
+<dom-module id="vaadin-side-menu">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+      :host([toggle]) {
+          background-color: red;
+      }
+    </style>
+    <div part="header">
+      <iron-icon icon="lumo:menu" on-click="_menuClicked"></iron-icon>
+      <span id0"app-icon">My App</span>
+    </div>
+    <div part="spacing-top"></div>
+    <div part="menu-items">
+      <slot name="menu-items"></slot>
+    </div>
+    <div part="spacing-bottom"></div>
+    <div part="bottom">
+      <slot name="bottom"></slot>
+    </div>
+  </template>
+
+  <script>
+    (function() {
+
+      /**
+       * `<vaadin-side-menu>` is a Polymer 2 element.
+       *
+       * ```
+       * <vaadin-side-menu></vaadin-side-menu>
+       * ```
+       *
+       * @memberof Vaadin
+       * @demo demo/index.html
+       */
+      class VaadinSideMenu extends Vaadin.ElementMixin(Vaadin.ThemableMixin(Polymer.Element)) {
+        static get is() {
+          return 'vaadin-side-menu';
+        }
+        static get version() {
+          return '0.1.0';
+        }
+
+        static get properties() {
+          return {
+            toggle: {
+              type: Boolean,
+              value: false,
+              notify: true,
+              reflectToAttribute: true
+            }
+          };
+        }
+
+        _menuClicked(){
+          console.log("fgoo");
+          this.toggle = !this.toggle;
+        }
+      }
+
+      customElements.define(VaadinSideMenu.is, VaadinSideMenu);
+
+      /**
+       * @namespace Vaadin
+       */
+      window.Vaadin.VaadinSideMenu = VaadinSideMenu;
+    })();
+  </script>
+</dom-module>

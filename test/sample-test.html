@@ -1,0 +1,35 @@
+<!doctype html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>vaadin-side-menu tests</title>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../vaadin-side-menu.html">
+</head>
+
+<body>
+  <test-fixture id="default">
+    <template>
+      <vaadin-side-menu></vaadin-side-menu>
+    </template>
+  </test-fixture>
+
+  <script>
+    describe('sample test', function() {
+      var element;
+
+      beforeEach(function() {
+        element = fixture('default');
+      });
+
+      it('should pass', function() {
+        expect(element.localName).to.be.equal('vaadin-side-menu');
+      });
+
+      it('should not expose class name globally', function() {
+        expect(window.VaadinSideMenu).not.to.be.ok;
+      });
+
+    });
+  </script>
+</body>

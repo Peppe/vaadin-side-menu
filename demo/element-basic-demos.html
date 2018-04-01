@@ -1,0 +1,40 @@
+<dom-module id="element-basic-demos">
+  <template>
+    <style include="vaadin-component-demo-shared-styles">
+      :host {
+        display: block;   
+      }
+
+      .framer {
+        border: 3px solid var(--lumo-shade-50pct);
+      }
+    </style>
+
+
+    <h3>Sample example</h3>
+    <vaadin-demo-snippet id="element-basic-demos-sample-example">
+      <template preserve-content>
+        <div class="framer">
+          <vaadin-side-menu>
+            <span slot="menu-items">
+              <vaadin-side-menu-item title="Home" icon="lumo:upload" theme="active"></vaadin-side-menu-item>
+              <vaadin-side-menu-item title="Calendar" icon="lumo:calendar"></vaadin-side-menu-item>
+              <vaadin-side-menu-item title="Magazine" icon="lumo:edit"></vaadin-side-menu-item>
+              <vaadin-side-menu-item title="Admin" icon="lumo:cog"></vaadin-side-menu-item>
+            </span>
+            <span slot="bottom">Hello world</span>
+          </vaadin-side-menu>
+        </div>
+      </template>
+    </vaadin-demo-snippet>
+
+  </template>
+  <script>
+    class ElementBasicDemos extends DemoReadyEventEmitter(ElementDemo(Polymer.Element)) {
+      static get is() {
+        return 'element-basic-demos';
+      }
+    }
+    customElements.define(ElementBasicDemos.is, ElementBasicDemos);
+  </script>
+</dom-module>

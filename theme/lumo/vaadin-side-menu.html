@@ -1,0 +1,91 @@
+<link rel="import" href="../../src/vaadin-side-menu.html">
+
+
+<link rel="import" href="../../../vaadin-lumo-styles/color.html">
+<link rel="import" href="../../../vaadin-lumo-styles/sizing.html">
+<link rel="import" href="../../../vaadin-lumo-styles/spacing.html">
+<link rel="import" href="../../../vaadin-lumo-styles/style.html">
+<link rel="import" href="../../../vaadin-lumo-styles/typography.html">
+<link rel="import" href="../../../vaadin-lumo-styles/font-icons.html">
+
+<dom-module id="vaadin-side-menu-theme" theme-for="vaadin-side-menu">
+    <template>
+        <style include="vaadin-side-menu-style">
+      /* This needs to be the last selector for it to take priority */
+      :host {
+
+      }
+      </style>
+    </template>
+</dom-module>
+
+<dom-module id="vaadin-side-menu-style">
+  <template>
+    <style>
+      :host {
+        --vaadin-side-menu-background: var(--lumo-primary-color-50pct);
+        --vaadin-side-menu-color: var(--lumo-contrast);
+        --vaadin-side-menu-border-color: var(--lumo-primary-color);
+        --vaadin-side-menu-item-border: var(--lumo-tint-20pct);
+        
+
+        color: var(--lumo-contrast);
+        background-color: var(--vaadin-side-menu-background);
+        border-right: 1px solid var(--vaadin-side-menu-border-color);
+        width:280px;
+      }
+
+      [part="header"] {
+        padding: var(--lumo-space-s);
+      }
+
+      [part="header"] iron-icon {
+        cursor: pointer;
+      }
+
+      [part="menu-items"] {
+        border-top: 1px solid var(--vaadin-side-menu-item-border);
+      }
+
+      [part="header"],
+      [part="bottom"] {
+        padding: var(--lumo-space-s);
+      }
+      
+      [part="spacing-top"], 
+      [part="spacing-bottom"] {
+        height: var(--lumo-size-m);
+      }
+      
+    </style>
+  </template>
+</dom-module>
+
+<dom-module id="vaadin-side-menu-item-theme" theme-for="vaadin-side-menu-item">
+    <template>
+        <style include="vaadin-side-menu-item-style">
+      /* This needs to be the last selector for it to take priority */
+      :host {
+
+      }
+      </style>
+    </template>
+</dom-module>
+
+<dom-module id="vaadin-side-menu-item-style">
+  <template>
+    <style>
+      :host {
+        --vaadin-side-menu-item-border: var(--lumo-tint-20pct);
+        padding: var(--lumo-space-s);
+        border-bottom: 1px solid var(--vaadin-side-menu-item-border);
+      }
+
+      :host([theme~="active"]) {
+        background-color: var(--lumo-primary-color);
+        color: var(--lumo-primary-contrast-color);
+        font-weight: 600;
+      }
+    </style>
+  </template>
+</dom-module>
